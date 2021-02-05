@@ -16,47 +16,32 @@ module.exports = function toReadable (num) {
     let eight = 'eight'
 	let nine = 'nine'
 
-	let finded1 = numb.indexOf('1');
-	let finded2 = numb.indexOf('2');
-	let finded3 = numb.indexOf('3');
-	let finded4 = numb.indexOf('4');
-	let finded5 = numb.indexOf('5');
-	let finded6 = numb.indexOf('6');
-	let finded7 = numb.indexOf('7');
-	let finded8 = numb.indexOf('8');
-	let finded9 = numb.indexOf('9');
-
 	if (numb.length == 3) {
-		if (finded1 == numb.length - 3) {
+		if (numb.indexOf('1') == numb.length - 3) {
 			hundred = one;
-
-			findedTw = numb.indexOf('1', finded1 + 1);
-			if (findedTw == numb.length - 2) {
-				num = +numb.slice(1, 3).join("");
-			}
 		}
-		if (finded2 == numb.length - 3) {
+		if (numb.indexOf('2') == numb.length - 3) {
 			hundred = two;
 		}
-		if (finded3 == numb.length - 3) {
+		if (numb.indexOf('3') == numb.length - 3) {
 			hundred = three;
 		}
-		if (finded4 == numb.length - 3) {
+		if (numb.indexOf('4') == numb.length - 3) {
 			hundred = four;
 		}
-		if (finded5 == numb.length - 3) {
+		if (numb.indexOf('5') == numb.length - 3) {
 			hundred = five;
 		}
-		if (finded6 == numb.length - 3) {
+		if (numb.indexOf('6') == numb.length - 3) {
 			hundred = six;
 		}
-		if (finded7 == numb.length - 3) {
+		if (numb.indexOf('7') == numb.length - 3) {
 			hundred = seven;
 		}
-		if (finded8 == numb.length - 3) {
+		if (numb.indexOf('8') == numb.length - 3) {
 			hundred = eight;
 		}
-		if (finded9 == numb.length - 3) {
+		if (numb.indexOf('9') == numb.length - 3) {
 			hundred = nine;
 		}
 
