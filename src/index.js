@@ -1,9 +1,9 @@
 module.exports = function toReadable (num) {
-    let numb = Array.from(num.toString());
+	let numb = Array.from(num.toString());
 	let result;
 
 	let units;
-	let dozen	 = null;
+	let dozen = null;
 	let hundred = null;
 
 	let one = 'one';
@@ -13,7 +13,7 @@ module.exports = function toReadable (num) {
 	let five = 'five';
 	let six = 'six';
 	let seven = 'seven';
-  let eight = 'eight'
+    let eight = 'eight'
 	let nine = 'nine'
 
 	let finded1 = numb.indexOf('1');
@@ -26,45 +26,44 @@ module.exports = function toReadable (num) {
 	let finded8 = numb.indexOf('8');
 	let finded9 = numb.indexOf('9');
 
-	for (let i = 0; i < numb.length; i++) {
+	if (numb.length == 3) {
+		if (finded1 == numb.length - 3) {
+			hundred = one;
 
-			if (finded1 == numb.length - 3) {
-				hundred = one;
+			findedTw = numb.indexOf('1', finded1 + 1);
+			if (findedTw == numb.length - 2) {
+				num = +numb.slice(1, 3).join("");
+			}
+		}
+		if (finded2 == numb.length - 3) {
+			hundred = two;
+		}
+		if (finded3 == numb.length - 3) {
+			hundred = three;
+		}
+		if (finded4 == numb.length - 3) {
+			hundred = four;
+		}
+		if (finded5 == numb.length - 3) {
+			hundred = five;
+		}
+		if (finded6 == numb.length - 3) {
+			hundred = six;
+		}
+		if (finded7 == numb.length - 3) {
+			hundred = seven;
+		}
+		if (finded8 == numb.length - 3) {
+			hundred = eight;
+		}
+		if (finded9 == numb.length - 3) {
+			hundred = nine;
+		}
 
-				findedTw = numb.indexOf('1', finded1 + 1);
-				if (findedTw == numb.length - 2) {
-					num = +numb.slice(1, 3).join("");
-				}
-			}
-			if (finded2 == numb.length - 3) {
-				hundred = two;
-			}
-			if (finded3 == numb.length - 3) {
-				hundred = three;
-			}
-			if (finded4 == numb.length - 3) {
-				hundred = four;
-			}
-			if (finded5 == numb.length - 3) {
-				hundred = five;
-			}
-			if (finded6 == numb.length - 3) {
-				hundred = six;
-			}
-			if (finded7 == numb.length - 3) {
-				hundred = seven;
-			}
-			if (finded8 == numb.length - 3) {
-				hundred = eight;
-			}
-			if (finded9 == numb.length - 3) {
-				hundred = nine;
-			}
-
-			findedTw = numb.indexOf('1', 1);
-				if (findedTw == numb.length - 2) {
-					num = +numb.slice(1, 3).join("");
-				}
+		findedTw = numb.indexOf('1', 1);
+		if (findedTw == numb.length - 2) {
+			num = +numb.slice(1, 3).join("");
+		}
 	}
 
 		if (numb[numb.length - 1] == 1) {
@@ -100,6 +99,9 @@ module.exports = function toReadable (num) {
 
         if (num == 10) {
             units = 'ten'
+        }
+        if (num == 0) {
+            units = 'zero'
         }
 			if (num == 11) {
 				units = 'eleven'
@@ -156,17 +158,22 @@ module.exports = function toReadable (num) {
 
 	if (hundred) {
 		result = `${hundred} hundred`;
-			if (dozen) {
-				result = result + ` ${dozen}`;
-				if (units) {
-					result = result + ` ${units}`;
-				}
+		if (dozen) {
+			result = result + ` ${dozen}`;
+			if (units) {
+				result = result + ` ${units}`;
+			}
 		} if (!dozen) {
-				if (units) {
-					result = result + ` ${units}`;
-				}
+			if (units) {
+				result = result + ` ${units}`;
+			}
 		}
-	}
+	} else if (dozen) {
+		result = `${dozen}`;
+		if (units) {
+			result = result + ` ${units}`;
+		}
+	} else result = units;
 
 	return result;
 }
